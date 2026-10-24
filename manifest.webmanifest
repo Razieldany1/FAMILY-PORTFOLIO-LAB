@@ -1,11 +1,11 @@
 
 {
-  "id": "/FAMILY-PORTFOLIO-LAB/",
+  "id": "/",
   "name": "FAMILY PORTFOLIO LAB — Risk Manager",
   "short_name": "Portfolio Lab",
   "description": "Simulazioni e gestione del rischio per Leo e Bianca",
-  "start_url": "/FAMILY-PORTFOLIO-LAB/index.html",
-  "scope": "/FAMILY-PORTFOLIO-LAB/",
+  "start_url": "/index.html",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#091726",
   "theme_color": "#102238",
