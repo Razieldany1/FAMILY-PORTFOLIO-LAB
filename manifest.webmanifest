@@ -1,1 +1,31 @@
-{"name":"FAMILY PORTFOLIO LAB — Risk Manager","short_name":"Portfolio Lab","description":"Simulazioni e gestione del rischio per Leo e Bianca","start_url":"./index.html","scope":"./","display":"standalone","background_color":"#091726","theme_color":"#102238","lang":"it","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"},{"src":"icon-192.png","sizes":"192x192","type":"image/png"},{"src":"icon-512.png","sizes":"512x512","type":"image/png"}]}
+
+{
+  "id": "/FAMILY-PORTFOLIO-LAB/",
+  "name": "FAMILY PORTFOLIO LAB — Risk Manager",
+  "short_name": "Portfolio Lab",
+  "description": "Simulazioni e gestione del rischio per Leo e Bianca",
+  "start_url": "/FAMILY-PORTFOLIO-LAB/index.html",
+  "scope": "/FAMILY-PORTFOLIO-LAB/",
+  "display": "standalone",
+  "background_color": "#091726",
+  "theme_color": "#102238",
+  "lang": "it",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
