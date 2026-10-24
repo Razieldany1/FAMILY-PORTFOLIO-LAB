@@ -1,5 +1,5 @@
 
-const CACHE = 'family-portfolio-lab-v1-1';
+const CACHE = 'family-portfolio-lab-v1-2';
 
 const PREFIX = 'family-portfolio-lab-';
 
@@ -42,7 +42,7 @@ self.addEventListener('fetch', event => {
   if (
     event.request.method === 'GET' &&
     url.origin === self.location.origin &&
-    url.pathname.startsWith('/FAMILY-PORTFOLIO-LAB/')
+    url.pathname.startsWith(new URL('./',self.registration.scope).pathname)
   ) {
     event.respondWith(
       caches.match(event.request)
