@@ -1,5 +1,5 @@
 // FAMILY PORTFOLIO LAB v1.2 — PWA navigation recovery
-const CACHE = 'family-portfolio-lab-v1-2-navfix-1';
+const CACHE = 'family-portfolio-lab-v1-3-compare-1';
 const PREFIX = 'family-portfolio-lab-';
 const ASSETS = ['./index.html', './style.css', './app.js', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png'];
 self.addEventListener('install', event => {
