@@ -1,5 +1,5 @@
 
-const CACHE = 'family-portfolio-lab-v1-2';
+const CACHE = 'family-portfolio-lab-v1-3';
 
 const PREFIX = 'family-portfolio-lab-';
 
