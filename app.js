@@ -73,7 +73,7 @@ const PORTFOLIO_TEMPLATES={
  custom:{name:'Portafoglio personalizzato',holdings:[]}
 };
 function esc(v){return String(v).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
-function checkIsin(code){code=code.toUpperCase().replace(/\s/g,'');if(!/^[A-Z]{2}[A-Z0-9]{9}[0-9]$/.test(code))return false;const digits=[...code.slice(4),...code.slice(0,4)].map(ch=>/[A-Z]/.test(ch)?String(ch.charCodeAt(0)-55):ch).join('');let r=0;for(const digit of digits)r=(r*10+Number(digit))%97;return r===1}
+function checkIsin(code){code=code.toUpperCase().replace(/\s/g,'');if(!/^[A-Z]{2}[A-Z0-9]{9}[0-9]$/.test(code))return false;const digits=[...code].map(ch=>/[A-Z]/.test(ch)?String(ch.charCodeAt(0)-55):ch).join('');let sum=0,twice=false;for(let i=digits.length-1;i>=0;i--){let d=Number(digits[i]);if(twice){d*=2;if(d>9)d-=9}sum+=d;twice=!twice}return sum%10===0}
 function validHoldings(h){if(!Array.isArray(h)||!h.length||h.length>20)throw Error('Servono da 1 a 20 strumenti');let total=0;for(const x of h){if(!['stock','bond','gold','cash'].includes(x.asset)||!Number.isFinite(x.weight)||x.weight<=0||x.weight>100||typeof x.name!=='string'||!x.name.trim()||x.name.length>100||typeof x.isin!=='string'||(x.isin&&!checkIsin(x.isin)))throw Error('Strumento o ISIN non valido');total+=x.weight}if(Math.abs(total-100)>.001)throw Error('La somma dei pesi deve essere 100%');return h}
 function portfolios(){if(!Array.isArray(state.portfolios))state.portfolios=[];return state.portfolios}
 function modelReturns(cr,y){const k=y;return {stock:cr.stocks[k]??ass().stockReturn/100,bond:cr.bonds[k]??ass().bondReturn/100,gold:cr.gold?.[k]??.03,cash:0}}
