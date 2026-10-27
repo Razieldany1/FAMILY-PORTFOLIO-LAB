@@ -81,7 +81,7 @@ function runPortfolio(c,h,cr){const years=Math.round(c.years);let val=Math.max(0
 
 // v1.4 Historical Risk Engine. Historical returns must be provided by the user as sourced CSV.
 // No synthetic or illustrative series are ever labelled historical.
-let historicalAvailableAssets=[], historicalDataset=null, historicalDataStatus='Caricamento archivio automatico…', historicalA='', historicalB='', historicalOwner='leo', historicalWindow='2008',historicalMetadata=null,historicalMode='single',historicalSingle='';
+let historicalAvailableAssets=[], historicalDataset=null, historicalDataStatus='Caricamento archivio automatico…', historicalA='', historicalB='', historicalOwner='leo', historicalWindow='crisis2008',historicalMetadata=null,historicalMode='single',historicalSingle='';
 const HIST_WINDOWS={dotcom:['2000-01','2002-12','2000–2002 · Dot-com'],crisis2008:['2007-10','2009-03','2007–2009 · Crisi finanziaria'],covid:['2020-02','2020-04','2020 · Covid'],rates:['2022-01','2022-12','2022 · Inflazione e tassi'],all:[null,null,'Intero dataset']};
 const HIST_ASSETS=['stock','bond','gold','cash'];
 function parseHistoryCSV(raw){
@@ -176,7 +176,7 @@ function singleHistoricalPanel(saved,c,win){
  return out;
 }
 function riskCompareHistory(){
- const saved=portfolios().filter(p=>p.owner===historicalOwner),c=child(historicalOwner),win=HIST_WINDOWS[historicalWindow];
+ const saved=portfolios().filter(p=>p.owner===historicalOwner),c=child(historicalOwner),win=HIST_WINDOWS[historicalWindow]||HIST_WINDOWS.crisis2008;
  const options=saved.map(p=>`<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('');
  const first=saved.find(p=>p.id===historicalA)||saved[0],second=saved.find(p=>p.id===historicalB&&p.id!==first?.id)||saved.find(p=>p.id!==first?.id);
  const pick=(id,chosen)=>`<select id="${id}">${saved.map(p=>`<option value="${esc(p.id)}" ${p.id===chosen?'selected':''}>${esc(p.name)}</option>`).join('')}</select>`;
