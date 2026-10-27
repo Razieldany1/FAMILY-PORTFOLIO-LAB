@@ -1,5 +1,5 @@
 // FAMILY PORTFOLIO LAB v1.6B — Cloudflare root navigation fix
-const CACHE = 'family-portfolio-lab-v1-6b-2-history-window';
+const CACHE = 'family-portfolio-lab-v2-0-ui';
 const PREFIX = 'family-portfolio-lab-';
 const ASSETS = ['/', '/style.css', '/app.js', '/manifest.webmanifest', '/icon.svg', '/icon-192.png', '/icon-512.png'];
 self.addEventListener('install', event => {
