@@ -33,3 +33,23 @@ main{max-width:920px;padding-top:16px}
   #tabs button{font-size:12px}
   .child-overview{grid-template-columns:1fr}
 }
+
+/* v2.0.2 — verified historical PAC chart and accessible mobile rows */
+.historical-chart{border:1px solid #34516a;background:#0c1d30;border-radius:14px;padding:10px 8px 12px;margin:12px 0}
+.historical-chart svg{display:block;width:100%;height:auto;max-height:320px}
+.historical-legend{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;font-size:12px;color:#d4e4ef}
+.historical-legend span{display:inline-flex;align-items:center;gap:7px}
+.historical-legend i{display:inline-block;width:11px;height:11px;border-radius:50%}
+.wealth-dot{background:#5de0ca}.paid-dot{background:#e6ba6d}
+@media(max-width:650px){
+ .historical-table{overflow-x:visible}
+ .historical-table table{min-width:0;width:100%;display:block}
+ .historical-table thead{display:none}
+ .historical-table tbody{display:grid;gap:12px}
+ .historical-table tr{display:block;border:1px solid #36536b;border-radius:12px;padding:10px 12px;background:#152c40}
+ .historical-table td{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:7px 0;text-align:right;border-bottom:1px solid #2d455b}
+ .historical-table td:first-child{font-weight:700;font-size:15px;color:#eaf3fa}
+ .historical-table td:last-child{border-bottom:0}
+ .historical-table td::before{content:attr(data-label);text-align:left;color:#aec4d3;font-weight:400;flex:1}
+ .historical-table td:first-child::before{font-size:12px}
+}
