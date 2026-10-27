@@ -178,7 +178,7 @@ function historicalPacChart(rows){
  const py=v=>T+(H-T-B)*(1-v/max);
  const path=k=>rows.map((r,i)=>(i?'L':'M')+px(i).toFixed(1)+','+py(r[k]).toFixed(1)).join(' ');
  const ticks=[0,.25,.5,.75,1].map(f=>`<line x1="${L}" x2="${W-R}" y1="${py(max*f)}" y2="${py(max*f)}" stroke="#34516a" stroke-dasharray="3 5"/><text x="${L-9}" y="${py(max*f)+4}" fill="#b9cad8" font-size="12" text-anchor="end">${Math.round(max*f).toLocaleString('it-IT')}</text>`).join('');
- const dates=[0,Math.floor((rows.length-1)/2),rows.length-1].map(i=>`<text x="${px(i)}" y="${H-17}" fill="#b9cad8" font-size="12" text-anchor="middle">${esc(rows[i].date)}</text>`).join('');
+ const dates=[0,Math.floor((rows.length-1)/2),rows.length-1].map((i,j)=>`<text x="${px(i)}" y="${H-17}" fill="#b9cad8" font-size="12" text-anchor="${j===0?'start':j===2?'end':'middle'}">${esc(rows[i].date)}</text>`).join('');
  return `<div class="historical-chart" role="img" aria-label="Evoluzione mensile del capitale con PAC e dei versamenti cumulati, in euro"><svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${ticks}<path d="${path('paid')}" fill="none" stroke="#e6ba6d" stroke-width="3" stroke-linejoin="round"/><path d="${path('wealth')}" fill="none" stroke="#5de0ca" stroke-width="3" stroke-linejoin="round"/>${dates}</svg><div class="historical-legend"><span><i class="wealth-dot"></i>Capitale con PAC</span><span><i class="paid-dot"></i>Totale versato</span></div></div><p class="help">Valori nominali a fine mese. Il PAC viene aggiunto dopo il rendimento mensile; sono esclusi costi e imposte.</p>`;
 }
 function singleHistoricalPanel(saved,c,win){
@@ -284,7 +284,7 @@ function optimizeView(){
  const app=$('app');
  // Preserve all historical results; collapse long tables instead of removing them.
  app.querySelectorAll('.table-scroll').forEach((wrap,i)=>{
-   if(!wrap.querySelector('table'))return;
+   if(!wrap.querySelector('table') || wrap.closest('details'))return;
    const rows=wrap.querySelectorAll('tbody tr').length;
    if(rows<8)return;
    const details=document.createElement('details');
